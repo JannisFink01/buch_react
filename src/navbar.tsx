@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   return (
     <nav className="navbar">
-            <FontAwesomeIcon icon={faBrain} className='Brainlogo'/>
-            <h1 className='title'>BIGBOOKS</h1>
       <FontAwesomeIcon icon={faBrain} className='Brainlogo'/>
       <h1 className='title'>BIGBOOKS</h1>
       <Button className= 'B1' style={{ marginRight: '10px' }}>create </Button>
