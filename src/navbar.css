@@ -1,0 +1,46 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f0f0f0;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  
+    /* Weitere gewünschte Stile */
+  }
+  .Brainlogo{
+    font-size: 60px;
+    animation: rainbow 5s linear infinite;
+  }
+  @keyframes rainbow {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    57% { color: blue; }
+    71% { color: indigo; }
+    85% { color: violet; }
+    100% { color: red; }
+  }
+  .title {
+    font-size: 3rem;
+    font-weight: bolder;
+    animation: rainbow 5s linear infinite;
+  }
+  .B1{
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  .B2{
+    margin-right: 20px;
+  }
