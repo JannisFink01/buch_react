@@ -7,14 +7,20 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav className="navbar">
-      <FontAwesomeIcon icon={faBrain} className='Brainlogo'/>
-      <h1 className='title'>BIGBOOKS</h1>
-      <Button className= 'B1' style={{ marginRight: '10px' }}>create </Button>
-      <Button className= 'B2' style={{ marginRight: '10px' }}>Search for Books </Button>
+    <nav className="navbar navbar-default">
+  <div className="container-fluid">
+    <div className="navbar-header">
+      <a className="navbar-brand" href="#">BigBooks</a>
+    </div>
+      <ul className="nav navbar-nav navbar-right">
+      <li className="active"><a href="#">Home</a></li>
+      <li><a href="/../Get/get.tsx"> create</a></li>
+      <li><a href="#">search</a></li>
+    </ul>
       {/* Weitere Navigationslinks oder Inhalte */}
+      </div>
     </nav>
-  );
+    );
 }
 
 export default Navbar;
