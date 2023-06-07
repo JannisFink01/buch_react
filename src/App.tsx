@@ -8,7 +8,8 @@ import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import { Buch } from './types/buchinterface';
 import BuchTable from './Pages/Get/Booktable';
-import BookSearch from './Pages/Get/findById';
+import FindByISBN from './Pages/Get/findByISBN';
+import FindByTitle from './Pages/Get/findByTitel';
 
 
 export function App() {
@@ -28,10 +29,13 @@ export function App() {
   }
   return <div className='Buch'>
     
-  <h1>Bücher anlegen</h1>
+  <h1>Bücher suchen</h1>
   <div className="bücher-menu">
   <React.StrictMode>
-    <BookSearch />
+    <FindByTitle />
+  </React.StrictMode>
+  <React.StrictMode>
+    <FindByISBN />
   </React.StrictMode>
 </div>
     <header className='buch-header'>
