@@ -18,6 +18,7 @@ const FindByISBN = () => {
         setBooks(response.data._embedded.buecher);
         setShowTable(true);
         setError('');
+        console.log(response.data._embedded.buecher);
       } else {
         setBooks([]);
         setShowTable(false);
