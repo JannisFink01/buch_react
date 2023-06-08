@@ -44,7 +44,7 @@ const FindByTitle = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <label>
-          Enter Book ISBN:
+          Enter Book Title:
           <input
             type="text"
             className="form-control"

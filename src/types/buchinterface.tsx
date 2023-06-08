@@ -12,7 +12,7 @@
       titel: string;
       untertitel: string;
     };
-    _links: any;
+    _links: string;
   }
   export default Buch;
   

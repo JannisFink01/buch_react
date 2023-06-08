@@ -10,9 +10,10 @@ import { Buch } from './types/buchinterface';
 import BuchTable from './Pages/Get/Booktable';
 import FindByISBN from './Pages/Get/findByISBN';
 import FindByTitle from './Pages/Get/findByTitel';
-
+import { Login } from './Pages/auth/login';
 
 export function App() {
+  
   const [buecher, setBuecher]=useState<Buch[]>([])
   const [showTable, setShowTable] = useState(false);
 
@@ -36,6 +37,9 @@ export function App() {
   </React.StrictMode>
   <React.StrictMode>
     <FindByISBN />
+  </React.StrictMode>
+  <React.StrictMode>
+    <Login/>
   </React.StrictMode>
 </div>
     <header className='buch-header'>
