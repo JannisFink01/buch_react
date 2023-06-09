@@ -8,7 +8,6 @@ const FindByISBN = () => {
   const [buecher, setBooks] = useState<Buch[]>([]);
   const [showTable, setShowTable] = useState(false);
   const [error, setError] = useState('');
-
   const API_ENDPOINT = 'https://localhost:3000/rest';
 
   const searchBooks = async () => {

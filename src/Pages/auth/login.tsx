@@ -1,5 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Formular  from '../Post/form';
+import LoginProps from "../../types/onLoginSuccess";
+
 
 export const Login = () => {
 
@@ -18,11 +21,10 @@ export const Login = () => {
       
           if (response.status === 200) {
             // Login erfolgreich
-            const { token, roles } =response.data;
+            const{ token, roles } =response.data;
             // Speichern des Tokens und der Rolle im localStorage
             localStorage.setItem('token', token);
             localStorage.setItem('role', JSON.stringify(roles));
-
             console.log('Login erfolgreich');
             console.log('Token :'+'\n'+token+'\n'+'Rollen'+'\n'+roles);
             // Führe weitere Aktionen aus, z.B. Weiterleitung zur nächsten Seite
@@ -44,6 +46,7 @@ export const Login = () => {
             setLoginPassword(value);
         }
     };
+    
 
     return (
         <div>
