@@ -1,32 +1,32 @@
-import axios from "axios";
-import { useState } from "react";
-interface FormularProps {
-  token: string;
-}
+import axios from 'axios';
+import { useState } from 'react';
+//interface FormularProps {
+//  token: string;
+//}
 export default function Formular() {
-  const [isbn, setIsbn] = useState("");
-  const [titel, setTitel] = useState("");
-  const [untertitel, setUntertitel] = useState("");
+  const [isbn, setIsbn] = useState('');
+  const [titel, setTitel] = useState('');
+  const [untertitel, setUntertitel] = useState('');
   const [rating, setRating] = useState(0);
-  const [buchArt, setBuchArt] = useState("");
+  const [buchArt, setBuchArt] = useState('');
   const [preis, setPreis] = useState(0.0);
   const [rabatt, setRabatt] = useState(0.0);
   const [lieferbar, setLieferbar] = useState(true);
-  const [datum, setDatum] = useState("");
-  const [homePage, setHomepage] = useState("");
-  const [schlagwörter, setSchlagwörter] = useState("");
+  const [datum, setDatum] = useState('');
+  const [homePage, setHomepage] = useState('');
+  const [schlagwörter, setSchlagwörter] = useState('');
   const API_ENDPOINT = 'https://localhost:3000/rest';
   const token = localStorage.getItem('token');
   const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        }
-      }
-  const payload={
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const payload = {
     isbn: isbn,
     titel: {
       titel: titel,
-      untertitel: untertitel
+      untertitel: untertitel,
     },
     rating: rating,
     buchArt: buchArt,
@@ -40,15 +40,13 @@ export default function Formular() {
       {
         beschriftung: 'Abb. 1',
         contentType: 'img/png',
-      },]
-  }
+      },
+    ],
+  };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); 
+    e.preventDefault();
     try {
-     
-      const res = await axios
-      .post(`${API_ENDPOINT}`,payload,config
-      );
+      const res = await axios.post(`${API_ENDPOINT}`, payload, config);
       if (res.status === 201) {
         const {
           isbn,
@@ -60,7 +58,7 @@ export default function Formular() {
           rabatt,
           lieferbar,
           homePage,
-          schlagwörter
+          schlagwörter,
         } = res.data;
 
         console.log({
@@ -73,15 +71,15 @@ export default function Formular() {
           rabatt,
           lieferbar,
           homePage,
-          schlagwörter
+          schlagwörter,
         });
       } else {
-        console.log("put fehlgeschlagen");
-        console.log
+        console.log('put fehlgeschlagen');
+        console.log;
       }
     } catch (error) {
       console.error(error);
-      console.log("FEHLER");
+      console.log('FEHLER');
     }
   };
 
@@ -172,8 +170,8 @@ export default function Formular() {
               type="text"
               className="form-control"
               id="exampleInputLieferbar1"
-              value={lieferbar? 'true' : 'false'}
-              onChange={(event) => setLieferbar(event.target.value==='true')}
+              value={lieferbar ? 'true' : 'false'}
+              onChange={(event) => setLieferbar(event.target.value === 'true')}
               placeholder="Lieferbar"
             />
           </div>
