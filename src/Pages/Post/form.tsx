@@ -29,7 +29,7 @@ export default function Formular() {
       untertitel: untertitel
     },
     rating: rating,
-    buchArt: buchArt,
+    art: buchArt,
     preis: preis,
     rabatt: rabatt,
     lieferbar: lieferbar,
