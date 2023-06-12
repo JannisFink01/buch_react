@@ -1,7 +1,5 @@
 import axios from 'axios';
 import { useState } from 'react';
-//interface FormularProps {
-//  token: string;
 
 export default function Formular() {
   const [isbn, setIsbn] = useState('');
