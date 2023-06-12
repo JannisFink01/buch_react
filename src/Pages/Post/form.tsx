@@ -14,7 +14,7 @@ export default function Formular() {
   const [lieferbar, setLieferbar] = useState(true);
   const [datum, setDatum] = useState("");
   const [homePage, setHomepage] = useState("");
-  const [schlagwörter, setSchlagwörter] = useState("");
+  const [schlagwörter, setSchlagwörter] =  useState<string[]>([]);
   const API_ENDPOINT = 'https://localhost:3000/rest';
   const token = localStorage.getItem('token');
   const config = {
@@ -22,6 +22,7 @@ export default function Formular() {
           Authorization: `Bearer ${token}`,
         }
       }
+      const uniqueSchlagwoerter = [...new Set(schlagwörter)];
   const payload={
     isbn: isbn,
     titel: {
@@ -35,7 +36,7 @@ export default function Formular() {
     lieferbar: lieferbar,
     datum: datum,
     homePage: homePage,
-    schlagwörter: schlagwörter,
+    schlagwoerter: uniqueSchlagwoerter,
     abbildungen: [
       {
         beschriftung: 'Abb. 1',
