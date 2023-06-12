@@ -12,6 +12,7 @@ export default function Formular() {
   const [preis, setPreis] = useState(0.0);
   const [rabatt, setRabatt] = useState(0.0);
   const [lieferbar, setLieferbar] = useState(true);
+<<<<<<< HEAD
   const [datum, setDatum] = useState('');
   const [homePage, setHomepage] = useState('');
   const [schlagwörter, setSchlagwörter] = useState('');
@@ -23,19 +24,33 @@ export default function Formular() {
     },
   };
   const payload = {
+=======
+  const [datum, setDatum] = useState("");
+  const [homePage, setHomepage] = useState("");
+  const [schlagwörter, setSchlagwörter] =  useState<string[]>([]);
+  const API_ENDPOINT = 'https://localhost:3000/rest';
+  const token = localStorage.getItem('token');
+  const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      }
+      const uniqueSchlagwoerter = [...new Set(schlagwörter)];
+  const payload={
+>>>>>>> 3aded7b745f17aa66af3ca0902b935608c4935a2
     isbn: isbn,
     titel: {
       titel: titel,
       untertitel: untertitel,
     },
     rating: rating,
-    buchArt: buchArt,
+    art: buchArt,
     preis: preis,
     rabatt: rabatt,
     lieferbar: lieferbar,
     datum: datum,
     homePage: homePage,
-    schlagwörter: schlagwörter,
+    schlagwoerter: uniqueSchlagwoerter,
     abbildungen: [
       {
         beschriftung: 'Abb. 1',
