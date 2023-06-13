@@ -13,7 +13,7 @@ export default function Formular() {
   const [rabatt, setRabatt] = useState(0.0);
   const [lieferbar, setLieferbar] = useState(true);
   const [datum, setDatum] = useState("");
-  const [homePage, setHomepage] = useState("");
+  const [homepage, setHomepage] = useState("");
   const [schlagwörter, setSchlagwörter] =  useState<string[]>([]);
   const API_ENDPOINT = 'https://localhost:3000/rest';
   const token = localStorage.getItem('token');
@@ -35,7 +35,7 @@ export default function Formular() {
     rabatt: rabatt,
     lieferbar: lieferbar,
     datum: datum,
-    homePage: homePage,
+    homepage: homepage,
     schlagwoerter: uniqueSchlagwoerter,
     abbildungen: [
       {
@@ -190,14 +190,14 @@ export default function Formular() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputHomePage1">HomePage</label>
+            <label htmlFor="exampleInputHomepage1">Homepage</label>
             <input
               type="text"
               className="form-control"
               id="exampleInputHomepage1"
-              value={homePage}
+              value={homepage}
               onChange={(event) => setHomepage(event.target.value)}
-              placeholder="HomePage"
+              placeholder="Homepage"
             />
           </div>
           <div className="form-group">
