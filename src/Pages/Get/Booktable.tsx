@@ -1,9 +1,9 @@
-import React from 'react';
-import {Buch} from '../../types/buchinterface.tsx';
+import React from "react";
+import { Buch } from "../../types/buchinterface.tsx";
 
-const BuchTable = ({ buecher } :{buecher :Buch[]}) => {
+const BuchTable = ({ buecher }: { buecher: Buch[] }) => {
   return (
-    <table className='table table-striped'>
+    <table className="table table-striped">
       <thead>
         <tr>
           <th>ISBN</th>
@@ -29,7 +29,7 @@ const BuchTable = ({ buecher } :{buecher :Buch[]}) => {
             <td>{buch.art}</td>
             <td>{buch.preis}</td>
             <td>{buch.rabatt}</td>
-            <td>{buch.lieferbar ? 'Yes': 'No'}</td>
+            <td>{buch.lieferbar ? "Yes" : "No"}</td>
             <td>{buch.datum}</td>
             <td>{buch.homepage}</td>
             <td>{buch.schlagwoerter}</td>

@@ -7,8 +7,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "eslint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prettier": "prettier --cache --write \"src/**/*.ts\""
+    "prettier": "prettier --cache --write \"src/**/*.{ts,tsx}\"",
+    "prettier:check": "prettier --cache --check \"src/**/*.{ts,tsx}\""
+
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "6.4.0",

@@ -15,20 +15,20 @@ export default function Formular() {
   const [lieferbar, setLieferbar] = useState(true);
   const [datum, setDatum] = useState("");
   const [homepage, setHomepage] = useState("");
-  const [schlagwörter, setSchlagwörter] =  useState<string[]>([]);
-  const API_ENDPOINT = 'https://localhost:3000/rest';
-  const token = Cookies.get('token');
+  const [schlagwörter, setSchlagwörter] = useState<string[]>([]);
+  const API_ENDPOINT = "https://localhost:3000/rest";
+  const token = Cookies.get("token");
   const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        }
-      }
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
   const uniqueSchlagwoerter = [...new Set(schlagwörter)];
-  const payload={
+  const payload = {
     isbn: isbn,
     titel: {
       titel: titel,
-      untertitel: untertitel
+      untertitel: untertitel,
     },
     rating: rating,
     art: buchArt,
@@ -40,16 +40,15 @@ export default function Formular() {
     schlagwoerter: uniqueSchlagwoerter,
     abbildungen: [
       {
-        beschriftung: 'Abb. 1',
-        contentType: 'img/png',
-      },]
-  }
+        beschriftung: "Abb. 1",
+        contentType: "img/png",
+      },
+    ],
+  };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); 
+    e.preventDefault();
     try {
-      const res = await axios
-      .post(`${API_ENDPOINT}`,payload,config
-      );
+      const res = await axios.post(`${API_ENDPOINT}`, payload, config);
       if (res.status === 201) {
         const {
           isbn,
@@ -61,7 +60,7 @@ export default function Formular() {
           rabatt,
           lieferbar,
           homePage,
-          schlagwörter
+          schlagwörter,
         } = res.data;
 
         console.log({
@@ -74,11 +73,11 @@ export default function Formular() {
           rabatt,
           lieferbar,
           homePage,
-          schlagwörter
+          schlagwörter,
         });
       } else {
         console.log("put fehlgeschlagen");
-        console.log
+        console.log;
       }
     } catch (error) {
       console.error(error);
@@ -173,8 +172,8 @@ export default function Formular() {
               type="text"
               className="form-control"
               id="exampleInputLieferbar1"
-              value={lieferbar? 'true' : 'false'}
-              onChange={(event) => setLieferbar(event.target.value==='true')}
+              value={lieferbar ? "true" : "false"}
+              onChange={(event) => setLieferbar(event.target.value === "true")}
               placeholder="Lieferbar"
             />
           </div>
@@ -206,8 +205,10 @@ export default function Formular() {
               type="text"
               className="form-control"
               id="exampleInputSchlagwörter1"
-               value={Array.isArray(schlagwörter) ? schlagwörter.join(", ") : ""}
-              onChange={(event) => setSchlagwörter(event.target.value.split(", "))}
+              value={Array.isArray(schlagwörter) ? schlagwörter.join(", ") : ""}
+              onChange={(event) =>
+                setSchlagwörter(event.target.value.split(", "))
+              }
               placeholder="Schlagwörter"
             />
           </div>

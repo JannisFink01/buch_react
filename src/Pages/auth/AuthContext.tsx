@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useState } from 'react';
+import React, { ReactNode, createContext, useState } from "react";
 
 // Erstelle den Authentifizierungs-Kontext
 type AuthContextType = {
@@ -13,8 +13,8 @@ type Props = {
 };
 
 const AuthContext = createContext<AuthContextType>({
-  token: '',
-  role: '',
+  token: "",
+  role: "",
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   updateToken: () => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -22,8 +22,8 @@ const AuthContext = createContext<AuthContextType>({
 });
 
 export const AuthProvider = ({ children }: Props) => {
-  const [token, setToken] = useState('');
-  const [role, setRole] = useState('');
+  const [token, setToken] = useState("");
+  const [role, setRole] = useState("");
 
   // Funktionen zum Aktualisieren des Tokens und der Rolle
   const updateToken = (newToken: string) => {
