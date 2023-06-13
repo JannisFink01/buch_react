@@ -152,7 +152,7 @@ export default function Formular() {
               className="form-control"
               id="exampleInputPreis1"
               value={preis}
-              onChange={(event) => setPreis(Number(event.target.value))}
+              onChange={(event) => setPreis(parseFloat(event.target.value))}
               placeholder="Preis"
             />
           </div>
@@ -163,7 +163,7 @@ export default function Formular() {
               className="form-control"
               id="exampleInputRabatt1"
               value={rabatt.toString()}
-              onChange={(event) => setRabatt(Number(event.target.value))}
+              onChange={(event) => setRabatt(parseFloat(event.target.value))}
               placeholder="Rabatt"
             />
           </div>
@@ -206,8 +206,8 @@ export default function Formular() {
               type="text"
               className="form-control"
               id="exampleInputSchlagwörter1"
-              value={schlagwörter}
-              onChange={(event) => setSchlagwörter(event.target.value)}
+               value={Array.isArray(schlagwörter) ? schlagwörter.join(", ") : ""}
+              onChange={(event) => setSchlagwörter(event.target.value.split(", "))}
               placeholder="Schlagwörter"
             />
           </div>
