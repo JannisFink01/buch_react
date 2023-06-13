@@ -10,6 +10,7 @@ export const Login = () => {
     const [loginUser, setLoginUser] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const [error, setError] = useState('');
+    const[token,setToken]=useState('');
 
     const API_ENDPOINT = 'https://localhost:3000/auth/login';
 
@@ -25,6 +26,7 @@ export const Login = () => {
             const{ token, roles } =response.data;
             // Speichern des Tokens und der Rolle im localStorage
             Cookies.set('token', token, { expires: 1} );
+            setToken(token);
             localStorage.setItem('token', token);
             localStorage.setItem('role', JSON.stringify(roles));
             console.log('Login erfolgreich');
