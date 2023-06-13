@@ -16,6 +16,7 @@ export function App() {
   
   const [buecher, setBuecher]=useState<Buch[]>([])
   const [showTable, setShowTable] = useState(false);
+  const username = localStorage.getItem('username');
 
   const getBook =()=>{
     axios
@@ -29,7 +30,12 @@ export function App() {
     })
   }
   return <div className='Buch'>
-    
+    <nav>
+      <div className="navbar">
+        <div className="navbar-brand">Meine App</div>
+        <div className="navbar-user">{username && `Eingeloggt als: ${username}`}</div>
+      </div>
+    </nav>
   <h1>Bücher suchen</h1>
   <div className="bücher-menu">
   <React.StrictMode>

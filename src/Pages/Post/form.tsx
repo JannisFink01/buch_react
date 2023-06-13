@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
 interface FormularProps {
   token: string;
 }
@@ -16,13 +17,13 @@ export default function Formular() {
   const [homepage, setHomepage] = useState("");
   const [schlagwörter, setSchlagwörter] =  useState<string[]>([]);
   const API_ENDPOINT = 'https://localhost:3000/rest';
-  const token = localStorage.getItem('token');
+  const token = Cookies.get('token');
   const config = {
         headers: {
           Authorization: `Bearer ${token}`,
         }
       }
-      const uniqueSchlagwoerter = [...new Set(schlagwörter)];
+  const uniqueSchlagwoerter = [...new Set(schlagwörter)];
   const payload={
     isbn: isbn,
     titel: {
@@ -46,7 +47,6 @@ export default function Formular() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); 
     try {
-     
       const res = await axios
       .post(`${API_ENDPOINT}`,payload,config
       );

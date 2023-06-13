@@ -4,7 +4,6 @@ import {App} from './App.tsx'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import ErrorPage from "./Pages/error-page.jsx"
 
 const router =createBrowserRouter([
   {

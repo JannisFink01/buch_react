@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Formular  from '../Post/form';
 import LoginProps from "../../types/onLoginSuccess";
+import Cookies from "js-cookie";
 
 
 export const Login = () => {
@@ -23,10 +24,12 @@ export const Login = () => {
             // Login erfolgreich
             const{ token, roles } =response.data;
             // Speichern des Tokens und der Rolle im localStorage
+            Cookies.set('token', token, { expires: 1} );
             localStorage.setItem('token', token);
             localStorage.setItem('role', JSON.stringify(roles));
             console.log('Login erfolgreich');
             console.log('Token :'+'\n'+token+'\n'+'Rollen'+'\n'+roles);
+            console.log(Cookies.get('token'));
             // Führe weitere Aktionen aus, z.B. Weiterleitung zur nächsten Seite
           } else {
             // Login fehlgeschlagen
