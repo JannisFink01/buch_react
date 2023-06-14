@@ -3,8 +3,8 @@
 //import Buch from "../../types/buchinterface";
 
 export default function Get() {
-  return;
-  <div className="get">
-    <h1>Hello World</h1>
-  </div>;
+    return;
+    <div className="get">
+        <h1>Hello World</h1>
+    </div>;
 }

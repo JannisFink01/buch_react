@@ -1,3 +1,3 @@
 export default interface LoginProps {
-  onLoginSuccess: (token: string) => void;
+    onLoginSuccess: (token: string) => void;
 }
