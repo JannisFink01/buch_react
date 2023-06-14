@@ -44,7 +44,6 @@ const FindByISBN = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Enter Book ISBN:
                     <input
                         type="text"
                         className="form-control"

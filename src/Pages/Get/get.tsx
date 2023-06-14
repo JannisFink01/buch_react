@@ -21,7 +21,7 @@ export default function BuchHeader() {
     };
     return (
         <header className="buch-header">
-            <Button onClick={getBook}>Get Book</Button>
+            <Button onClick={getBook}>Alle Bücher erhalten</Button>
             {showTable && <BuchTable buecher={buecher} />}
         </header>
     );
