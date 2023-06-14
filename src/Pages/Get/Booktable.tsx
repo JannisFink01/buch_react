@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React from 'react';
-import { Buch } from '../../types/buchinterface.tsx';
-=======
 import React from "react";
 import { Buch } from "../../types/buchinterface.tsx";
->>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
 
 const BuchTable = ({ buecher }: { buecher: Buch[] }) => {
   return (

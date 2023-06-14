@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-//import { faBrain } from '@fortawesome/free-solid-svg-icons';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import React from 'react';
-//import { Button } from 'react-bootstrap';
-//import './navbar.css'
-//import { Link } from 'react-router-dom';
-=======
 import { faBrain } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button } from "react-bootstrap";
 import "./navbar.css";
 import { Link } from "react-router-dom";
->>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
 
 function Navbar() {
   return (

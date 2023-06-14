@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-import axios from 'axios';
-import { useState } from 'react';
-
-=======
 import axios from "axios";
 import { useState } from "react";
 import Cookies from "js-cookie";
 interface FormularProps {
   token: string;
 }
->>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
 export default function Formular() {
   const [isbn, setIsbn] = useState('');
   const [titel, setTitel] = useState('');
@@ -19,20 +13,11 @@ export default function Formular() {
   const [preis, setPreis] = useState(0.0);
   const [rabatt, setRabatt] = useState(0.0);
   const [lieferbar, setLieferbar] = useState(true);
-<<<<<<< HEAD
-
-  const [datum, setDatum] = useState('');
-  const [homePage, setHomepage] = useState('');
-  const [schlagwörter, setSchlagwörter] = useState<string[]>([]);
-  const API_ENDPOINT = 'https://localhost:3000/rest';
-  const token = localStorage.getItem('token');
-=======
   const [datum, setDatum] = useState("");
   const [homepage, setHomepage] = useState("");
   const [schlagwörter, setSchlagwörter] = useState<string[]>([]);
   const API_ENDPOINT = "https://localhost:3000/rest";
   const token = Cookies.get("token");
->>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -55,13 +40,8 @@ export default function Formular() {
     schlagwoerter: uniqueSchlagwoerter,
     abbildungen: [
       {
-<<<<<<< HEAD
-        beschriftung: 'Abb. 1',
-        contentType: 'img/png',
-=======
         beschriftung: "Abb. 1",
         contentType: "img/png",
->>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
       },
     ],
   };
@@ -96,11 +76,7 @@ export default function Formular() {
           schlagwörter,
         });
       } else {
-<<<<<<< HEAD
-        console.log('put fehlgeschlagen');
-=======
         console.log("put fehlgeschlagen");
->>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
         console.log;
       }
     } catch (error) {
@@ -196,13 +172,8 @@ export default function Formular() {
               type="text"
               className="form-control"
               id="exampleInputLieferbar1"
-<<<<<<< HEAD
-              value={lieferbar ? 'true' : 'false'}
-              onChange={(event) => setLieferbar(event.target.value === 'true')}
-=======
               value={lieferbar ? "true" : "false"}
               onChange={(event) => setLieferbar(event.target.value === "true")}
->>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
               placeholder="Lieferbar"
             />
           </div>

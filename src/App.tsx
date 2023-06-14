@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
-import axios from 'axios';
-import { Buch } from './types/buchinterface';
-import BuchTable from './Pages/Get/Booktable';
-import FindByISBN from './Pages/Get/findByISBN';
-import FindByTitle from './Pages/Get/findByTitel';
-import { Login } from './Pages/auth/login';
-import Formular from './Pages/Post/form';
-//import handleLoginSuccess from './types/onLoginSuccess';
-//import onLoginSuccess from './types/onLoginSuccess';
-=======
 import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -28,7 +12,6 @@ import { Login } from "./Pages/auth/login";
 import Formular from "./Pages/Post/form";
 import handleLoginSuccess from "./types/onLoginSuccess";
 import onLoginSuccess from "./types/onLoginSuccess";
->>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
 export function App() {
   const [buecher, setBuecher] = useState<Buch[]>([]);
   const [showTable, setShowTable] = useState(false);
@@ -36,11 +19,7 @@ export function App() {
 
   const getBook = () => {
     axios
-<<<<<<< HEAD
-      .get('https://localhost:3000/rest')
-=======
       .get("https://localhost:3000/rest")
->>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
       .then((res) => {
         console.log(res.data._embedded.buecher);
         setBuecher(res.data._embedded.buecher);
