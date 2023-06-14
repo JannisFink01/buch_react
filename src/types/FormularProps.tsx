@@ -1,3 +1,3 @@
 export default interface FormularProps {
-  token: string;
+    token: string;
 }
