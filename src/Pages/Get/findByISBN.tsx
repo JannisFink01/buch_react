@@ -53,7 +53,7 @@ const FindByISBN = () => {
                     />
                 </label>
                 <button type="submit" className="btn btn-primary">
-                    Search Books
+                    Suche
                 </button>
             </form>
             {error && <div>{error}</div>}
