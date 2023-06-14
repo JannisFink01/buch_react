@@ -2,9 +2,11 @@ import axios from 'axios';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
 import { Dropdown } from 'react-bootstrap';
+import { handleErrorResponse } from './formerrors';
 interface FormularProps {
     token: string;
 }
+
 export default function Formular() {
     const [isbn, setIsbn] = useState('');
     const [titel, setTitel] = useState('');
@@ -17,6 +19,7 @@ export default function Formular() {
     const [datum, setDatum] = useState('');
     const [homepage, setHomepage] = useState('');
     const [schlagwörter, setSchlagwörter] = useState<string[]>([]);
+    const [error, setError] = useState('');
     const API_ENDPOINT = 'https://localhost:3000/rest';
     const token = Cookies.get('token');
     const config = {
@@ -76,13 +79,16 @@ export default function Formular() {
                     homePage,
                     schlagwörter,
                 });
+                setError('');
             } else {
                 console.log('put fehlgeschlagen');
                 console.log;
+                handleErrorResponse(res, setError);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
             console.log('FEHLER');
+            handleErrorResponse(error.response, setError);
         }
     };
     const handleBuchArtChange = (value: string) => {
@@ -275,6 +281,7 @@ export default function Formular() {
                                 Buch erstellen
                             </button>
                         </div>
+                        {error && <div className="error-message">{error}</div>}
                     </div>
                 </div>
             </div>
