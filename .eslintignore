@@ -1,0 +1,6 @@
+.vscode/*
+build/*
+node-ts/*
+scripts/*
+temp/*
+node_modules/*
