@@ -26,10 +26,9 @@ function Navbar() {
             <li className="nav-item">
               <NavDropdown
                 title={<span><FontAwesomeIcon icon={faSearch} /> Bücher suchen</span>}
-                id="basic-nav-dropdown"
-              >
+                id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/search/all">
-                  Alle Bücher suchen
+                  Alle Bücher
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/search/isbn">
                   Suche nach ISBN
