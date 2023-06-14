@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories
 
 .nyc_output/*
@@ -6,10 +7,17 @@ build/*
 coverage/*
 dist/*
 mochaawesome-report/*
+=======
+.vscode/*
+build/*
+>>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
 node-ts/*
 scripts/*
 temp/*
 node_modules/*
+<<<<<<< HEAD
 
 # default:
 #node_modules/*
+=======
+>>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4

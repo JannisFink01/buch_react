@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Copyright (C) 2018 - current Juergen Zimmermann, Florian Rusch
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,6 +16,8 @@
 
 # https://github.com/prettier/prettier/issues/4102
 # https://github.com/prettier/prettier/pull/7466
+=======
+>>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
 singleQuote: true
 tabWidth: 2
 trailingComma: all

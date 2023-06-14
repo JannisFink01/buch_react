@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Buch } from '../../types/buchinterface.tsx';
+=======
+import React from "react";
+import { Buch } from "../../types/buchinterface.tsx";
+>>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
 
 const BuchTable = ({ buecher }: { buecher: Buch[] }) => {
   return (
@@ -29,7 +34,7 @@ const BuchTable = ({ buecher }: { buecher: Buch[] }) => {
             <td>{buch.art}</td>
             <td>{buch.preis}</td>
             <td>{buch.rabatt}</td>
-            <td>{buch.lieferbar}</td>
+            <td>{buch.lieferbar ? "Yes" : "No"}</td>
             <td>{buch.datum}</td>
             <td>{buch.homepage}</td>
             <td>{buch.schlagwoerter}</td>

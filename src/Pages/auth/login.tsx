@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from 'axios';
 import React, { useState } from 'react';
 //import Formular  from '../Post/form';
@@ -9,6 +10,21 @@ export const Login = () => {
   const [error, setError] = useState('');
 
   const API_ENDPOINT = 'https://localhost:3000/auth/login';
+=======
+import axios from "axios";
+import React, { useState } from "react";
+import Formular from "../Post/form";
+import LoginProps from "../../types/onLoginSuccess";
+import Cookies from "js-cookie";
+
+export const Login = () => {
+  const [loginUser, setLoginUser] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [error, setError] = useState("");
+  const [token, setToken] = useState("");
+
+  const API_ENDPOINT = "https://localhost:3000/auth/login";
+>>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
 
   const handleLogin = async () => {
     try {
@@ -21,6 +37,7 @@ export const Login = () => {
         // Login erfolgreich
         const { token, roles } = response.data;
         // Speichern des Tokens und der Rolle im localStorage
+<<<<<<< HEAD
         localStorage.setItem('token', token);
         localStorage.setItem('role', JSON.stringify(roles));
         console.log('Login erfolgreich');
@@ -33,14 +50,37 @@ export const Login = () => {
     } catch (error) {
       console.error(error);
       setError('An error occurred during login.');
+=======
+        Cookies.set("token", token, { expires: 1 });
+        setToken(token);
+        localStorage.setItem("token", token);
+        localStorage.setItem("role", JSON.stringify(roles));
+        console.log("Login erfolgreich");
+        console.log("Token :" + "\n" + token + "\n" + "Rollen" + "\n" + roles);
+        console.log(Cookies.get("token"));
+        // Führe weitere Aktionen aus, z.B. Weiterleitung zur nächsten Seite
+      } else {
+        // Login fehlgeschlagen
+        console.log("Login fehlgeschlagen");
+      }
+    } catch (error) {
+      console.error(error);
+      setError("An error occurred during login.");
+>>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
     }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+<<<<<<< HEAD
     if (name === 'loginUser') {
       setLoginUser(value);
     } else if (name === 'loginPassword') {
+=======
+    if (name === "loginUser") {
+      setLoginUser(value);
+    } else if (name === "loginPassword") {
+>>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
       setLoginPassword(value);
     }
   };
