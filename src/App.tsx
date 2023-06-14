@@ -6,8 +6,7 @@ export function App() {
     return (
         <div className="Buch">
             <h1>Herzlich Willkommen bei BIGBOOKS!</h1>
-            <div className="bücher-menu">
-            </div>
+            <div className="bücher-menu"></div>
         </div>
     );
 }

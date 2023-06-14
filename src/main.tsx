@@ -25,10 +25,8 @@ const router = createBrowserRouter([
         path: '/create',
         element: (
             <>
-              <Navbar />
-              <h3>
-                Ein neues Buch anlegen
-              </h3>
+                <Navbar />
+                <h3>Ein neues Buch anlegen</h3>
                 <Formular />
             </>
         ),
@@ -37,10 +35,8 @@ const router = createBrowserRouter([
         path: '/login',
         element: (
             <>
-              <Navbar />
-              <h3>
-                Login
-              </h3>
+                <Navbar />
+                <h3>Login</h3>
                 <Login />
             </>
         ),
@@ -49,10 +45,8 @@ const router = createBrowserRouter([
         path: 'search/isbn',
         element: (
             <>
-              <Navbar />
-              <h3>
-                ISBN eingeben
-              </h3>
+                <Navbar />
+                <h3>ISBN eingeben</h3>
                 <FindByISBN />
             </>
         ),
@@ -61,10 +55,8 @@ const router = createBrowserRouter([
         path: 'search/title',
         element: (
             <>
-              <Navbar />
-              <h3>
-                Titel eingeben
-              </h3>
+                <Navbar />
+                <h3>Titel eingeben</h3>
                 <FindByTitle />
             </>
         ),
@@ -73,11 +65,9 @@ const router = createBrowserRouter([
         path: 'search/all',
         element: (
             <>
-              <Navbar />
-              <h3>
-                Alle Bücher suchen
-              </h3>
-              <Get />
+                <Navbar />
+                <h3>Alle Bücher suchen</h3>
+                <Get />
             </>
         ),
     },
