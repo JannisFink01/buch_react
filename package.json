@@ -6,12 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+<<<<<<< HEAD
+    "eslint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "prettier": "prettier --cache --write \"src\"",
+    "prettier:check": "prettier --cache --check \"src/**/*.ts\""
+=======
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "eslint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prettier": "prettier --cache --write \"src/**/*.{ts,tsx}\"",
     "prettier:check": "prettier --cache --check \"src/**/*.{ts,tsx}\""
 
+>>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "6.4.0",
@@ -24,10 +31,13 @@
     "bootstrap": "5.3.0",
     "cors": "2.8.5",
     "fontawesome": "5.6.3",
+<<<<<<< HEAD
+=======
     "js-cookie": "3.0.5",
     "js-cookies": "1.0.4",
     "jsonwebtoken": "9.0.0",
     "prettier": "2.8.8",
+>>>>>>> e3ab21f2c90a7b2eec069caf198803eb08971ab4
     "react": "18.2.0",
     "react-bootstrap": "2.7.4",
     "react-dom": "18.2.0",
@@ -43,6 +53,7 @@
     "eslint": "8.38.0",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.3.4",
+    "prettier": "2.8.8",
     "typescript": "5.0.2",
     "vite": "4.3.9"
   }

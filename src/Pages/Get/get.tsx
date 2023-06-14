@@ -1,6 +1,6 @@
-import axios from "axios";
-import { useState } from "react";
-import Buch from "../../types/buchinterface";
+//import axios from "axios";
+//import { useState } from "react";
+//import Buch from "../../types/buchinterface";
 
 export default function Get() {
   return;
