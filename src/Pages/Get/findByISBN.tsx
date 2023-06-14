@@ -25,7 +25,7 @@ const FindByISBN = () => {
             }
         } catch (error) {
             console.error(error);
-            setError('Error retrieving books.');
+            setError('Kein Buch zu dieser ISBN gefunden.');
             setBooks([]);
             setShowTable(false);
         }
@@ -59,7 +59,7 @@ const FindByISBN = () => {
             {error && <div>{error}</div>}
             {buecher.length > 0 && (
                 <div>
-                    <h2>Books Found</h2>
+                    <h3>Gefundene Bücher</h3>
                     {showTable && <BuchTable buecher={buecher} />}
                 </div>
             )}

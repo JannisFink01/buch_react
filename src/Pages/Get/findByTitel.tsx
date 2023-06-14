@@ -27,7 +27,7 @@ const FindByTitle = () => {
             }
         } catch (error) {
             console.error(error);
-            setError('Error retrieving books.');
+            setError('Kein Buch zu diesem Titel gefunden.');
             setBooks([]);
             setShowTable(false);
         }
@@ -46,11 +46,10 @@ const FindByTitle = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Enter Book Title:
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Title"
+                        placeholder="Titel"
                         value={bookTitle}
                         onChange={handleInputChange}
                     />
@@ -62,7 +61,7 @@ const FindByTitle = () => {
             {error && <div>{error}</div>}
             {buecher.length > 0 && (
                 <div>
-                    <h2>Books Found</h2>
+                    <h3>Gefundene Bücher</h3>
                     {showTable && <BuchTable buecher={buecher} />}
                 </div>
             )}
