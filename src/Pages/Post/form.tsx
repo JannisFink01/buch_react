@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
+import { Dropdown } from 'react-bootstrap';
 interface FormularProps {
     token: string;
 }
@@ -84,6 +85,9 @@ export default function Formular() {
             console.log('FEHLER');
         }
     };
+    const handleBuchArtChange = (value: string) => {
+        setBuchArt(value);
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -141,14 +145,27 @@ export default function Formular() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInpputBuchArt1">BuchArt</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="exampleInputBuchArt1"
-                            value={buchArt}
-                            onChange={(event) => setBuchArt(event.target.value)}
-                            placeholder="BuchArt"
-                        />
+                        <Dropdown>
+                            <Dropdown.Toggle variant="primary">
+                                {buchArt ? buchArt : 'BuchArt auswählen'}
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item
+                                    onClick={() =>
+                                        handleBuchArtChange('KINDLE')
+                                    }
+                                >
+                                    KINDLE
+                                </Dropdown.Item>
+                                <Dropdown.Item
+                                    onClick={() =>
+                                        handleBuchArtChange('DRUCKAUSGABE')
+                                    }
+                                >
+                                    DRUCKAUSGABE
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputPreis1">Preis</label>
