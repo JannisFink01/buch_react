@@ -18,7 +18,7 @@ export const handleErrorResponse = (
     setError: Dispatch<SetStateAction<string>>,
 ) => {
     const { message } = response.data;
-    let errorMessage = 'Fehler beim Anlegen des Buches.';
+    let errorMessage = 'Sie sind nicht berechtigt, ein Buch anzulegen';
 
     if (Array.isArray(message)) {
         errorMessage = message
