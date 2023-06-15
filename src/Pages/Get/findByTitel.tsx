@@ -13,7 +13,9 @@ const FindByTitle = () => {
 
     const searchBooks = async () => {
         try {
-            const response = await axios.get(`${API_ENDPOINT}?titel=${bookTitle}`);
+            const response = await axios.get(
+                `${API_ENDPOINT}?titel=${bookTitle}`,
+            );
             if (response.data._embedded && response.data._embedded.buecher) {
                 setBooks(response.data._embedded.buecher);
                 setShowTable(true);
