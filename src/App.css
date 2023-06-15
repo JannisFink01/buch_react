@@ -1,5 +1,5 @@
 .navbar-nav .nav-link {
-  color: black;
+  color: grey;
 }
 
 .navbar-nav .dropdown-item {
@@ -8,4 +8,24 @@
 .error-message {
   color: red;
   margin-top: 5px;
+}
+
+.Buch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.Buch h1 {
+  text-align: center;
+}
+
+.bücher-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-top: 20px;
 }

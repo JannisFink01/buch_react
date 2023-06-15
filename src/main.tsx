@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Navbar from './Pages/navbar.tsx';
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Formular from './Pages/Post/form.tsx';
@@ -42,7 +41,7 @@ const router = createBrowserRouter([
         ),
     },
     {
-        path: 'search/isbn',
+        path: '/search/isbn',
         element: (
             <>
                 <Navbar />
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
         ),
     },
     {
-        path: 'search/title',
+        path: '/search/title',
         element: (
             <>
                 <Navbar />
@@ -62,7 +61,7 @@ const router = createBrowserRouter([
         ),
     },
     {
-        path: 'search/all',
+        path: '/search/all',
         element: (
             <>
                 <Navbar />

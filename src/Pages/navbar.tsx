@@ -5,7 +5,7 @@ import {
     faSearch,
     faSignInAlt,
     faPlus,
-    faHouse,
+    faBook,
 } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
@@ -16,7 +16,7 @@ function Navbar() {
         >
             <div className="container-fluid">
                 <Link to="/" className="navbar-brand">
-                    <FontAwesomeIcon icon={faHouse} /> Home
+                    <FontAwesomeIcon icon={faBook} /> BIGBOOKS
                 </Link>
                 <button
                     className="navbar-toggler"
