@@ -6,7 +6,7 @@ const BuchTable = ({ buecher }: { buecher: Buch[] }) => {
         const maxStars = 5;
         const filledStars = Math.round(rating);
         const emptyStars = maxStars - filledStars;
-        
+
         const filledStar = <span style={{ color: 'gold' }}>★</span>;
         const emptyStar = <span style={{ color: 'gray' }}>★</span>;
 
