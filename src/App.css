@@ -12,9 +12,9 @@
 
 .Buch {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  text-align: center;
+  text-align: flex;
   height: 100vh;
 }
 

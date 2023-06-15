@@ -46,7 +46,7 @@ function Navbar() {
                                 id="basic-nav-dropdown"
                             >
                                 <NavDropdown.Item as={Link} to="/search/all">
-                                    Alle Bücher suchen
+                                    Alle Bücher
                                 </NavDropdown.Item>
                                 <NavDropdown.Item as={Link} to="/search/isbn">
                                     Suche nach ISBN
