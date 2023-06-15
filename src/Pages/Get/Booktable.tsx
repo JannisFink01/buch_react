@@ -42,7 +42,6 @@ const BuchTable = ({ buecher }: { buecher: Buch[] }) => {
                     <th>Titel</th>
                     <th>Untertitel</th>
                     <th>Rating</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -93,7 +92,7 @@ const BuchTable = ({ buecher }: { buecher: Buch[] }) => {
                                         <p>Preis: {buch.preis.toFixed(2)}</p>
                                         <p>
                                             Rabatt:{' '}
-                                            {(buch.rabatt * 100).toFixed(2)}%
+                                            {(buch.rabatt * 100).toFixed(1)}%
                                         </p>
                                         <p>
                                             Lieferbar:{' '}
