@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import Formular from '../Post/form';
-import LoginProps from '../../types/onLoginSuccess';
 import Cookies from 'js-cookie';
 import './Login.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export const Login = () => {
     const [loginUser, setLoginUser] = useState('');
@@ -56,7 +56,8 @@ export const Login = () => {
     return (
         <div className="container">
             <div className="login-box">
-                <h4>Login</h4>
+                <FontAwesomeIcon icon={faUser} />{' '}
+                <span className="fw-bold">Login</span>
                 <form>
                     <div className="form-outline mb-4">
                         <input
@@ -68,7 +69,7 @@ export const Login = () => {
                             onChange={handleInputChange}
                         />
                         <label className="form-label" htmlFor="form2Example1">
-                            Benutzername
+                            <span className="fw-normal">Benutzername</span>
                         </label>
                     </div>
 
@@ -82,7 +83,7 @@ export const Login = () => {
                             onChange={handleInputChange}
                         />
                         <label className="form-label" htmlFor="form2Example2">
-                            Passwort
+                            <span className="fw-normal">Passwort</span>
                         </label>
                     </div>
                     <button

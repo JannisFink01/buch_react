@@ -1,35 +1,60 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-  }
-  
-  .login-box {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .login-box input[type="text"],
-  .login-box input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .login-box button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .login-box button:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 380px;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.login-box .login-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.login-box form .form-outline {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.login-box form .form-label {
+  margin-bottom: 5px;
+}
+
+.login-box form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-box form button:hover {
+  background-color: #0056b3;
+}
+
+.login-box .fa-user {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
