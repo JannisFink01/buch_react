@@ -58,8 +58,7 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <Link to="/create" className="nav-link">
-                                <FontAwesomeIcon icon={faPlus} /> Neues Buch
-                                anlegen
+                                <FontAwesomeIcon icon={faPlus} /> Buch anlegen
                             </Link>
                         </li>
                         <li className="nav-item">
