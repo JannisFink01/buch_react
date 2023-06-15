@@ -1,0 +1,25 @@
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+  }
+  
+  .form-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .form-wrapper label {
+    flex-shrink: 0;
+  }
+  
+  .form-wrapper input[type="text"] {
+    flex-grow: 1;
+  }
+  
+  .form-wrapper button {
+    flex-shrink: 0;
+  }
+  

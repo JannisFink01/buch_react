@@ -2,20 +2,18 @@ import React, { useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import { Buch } from '../../types/buchinterface';
 import BuchTable from './Booktable';
+import './search.css';
 
 const FindByTitle = () => {
     const [bookTitle, setBookTitle] = useState('');
     const [buecher, setBooks] = useState<Buch[]>([]);
     const [showTable, setShowTable] = useState(false);
     const [error, setError] = useState('');
-
     const API_ENDPOINT = 'https://localhost:3000/rest';
 
     const searchBooks = async () => {
         try {
-            const response = await axios.get(
-                `${API_ENDPOINT}?titel=${bookTitle}`,
-            );
+            const response = await axios.get(`${API_ENDPOINT}?titel=${bookTitle}`);
             if (response.data._embedded && response.data._embedded.buecher) {
                 setBooks(response.data._embedded.buecher);
                 setShowTable(true);
@@ -43,12 +41,13 @@ const FindByTitle = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
+        <div className="center-container">
+            <form onSubmit={handleSubmit} className="form-wrapper">
+                <label htmlFor="titleInput">
                     <input
                         type="text"
                         className="form-control"
+                        id="titleInput"
                         placeholder="Titel"
                         value={bookTitle}
                         onChange={handleInputChange}

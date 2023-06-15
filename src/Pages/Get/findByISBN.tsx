@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import { Buch } from '../../types/buchinterface';
 import BuchTable from './Booktable';
+import './search.css';
 
 const FindByISBN = () => {
     const [bookIds, setBookIds] = useState('');
@@ -41,12 +42,13 @@ const FindByISBN = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
+        <div className="center-container">
+            <form onSubmit={handleSubmit} className="form-wrapper">
+                <label htmlFor="isbnInput">
                     <input
                         type="text"
                         className="form-control"
+                        id="isbnInput"
                         placeholder="ISBN"
                         value={bookIds}
                         onChange={handleInputChange}
