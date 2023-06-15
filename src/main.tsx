@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Navbar from './Pages/navbar.tsx';
+import './main.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Formular from './Pages/Post/form.tsx';
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         element: (
             <>
                 <Navbar />
-                <h3>Ein neues Buch anlegen</h3>
+                <h4>Ein neues Buch anlegen</h4>
                 <Formular />
             </>
         ),
@@ -35,7 +36,6 @@ const router = createBrowserRouter([
         element: (
             <>
                 <Navbar />
-                <h3>Login</h3>
                 <Login />
             </>
         ),

@@ -1,11 +1,77 @@
-.card .row {
-    flex-direction: column;
+.card {
+    width: 600px;
+    margin: 10px auto 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .row {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px -10px;
+  }
+  
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
-
-  .content {
-    margin-top: 70px;
+  
+  .dropdown-toggle {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .dropdown-item {
+    padding: 8px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
   }
   

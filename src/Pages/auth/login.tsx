@@ -38,7 +38,7 @@ export const Login = () => {
       }
     } catch (error) {
       console.error(error);
-      setError('Falscher Username oder falsches Passwort.');
+      setError('Falscher Benutzername oder falsches Passwort.');
     }
   };
 

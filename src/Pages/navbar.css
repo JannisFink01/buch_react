@@ -18,6 +18,11 @@
 
   /* Weitere gewünschte Stile */
 }
+
+.navbar + * {
+  margin-top: 64px;
+}
+
 .Brainlogo {
   font-size: 60px;
   animation: rainbow 5s linear infinite;

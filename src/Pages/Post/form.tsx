@@ -4,9 +4,6 @@ import { useState } from 'react';
 import Cookies from 'js-cookie';
 import { Dropdown } from 'react-bootstrap';
 import { handleErrorResponse } from './formerrors';
-interface FormularProps {
-    token: string;
-}
 
 export default function Formular() {
     const [isbn, setIsbn] = useState('');

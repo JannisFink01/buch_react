@@ -7,6 +7,7 @@ import {
     faPlus,
     faBook,
 } from '@fortawesome/free-solid-svg-icons';
+import './navbar.css';
 
 function Navbar() {
     return (
