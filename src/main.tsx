@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: (
             <>
                 <Navbar />
-                <h3>ISBN eingeben</h3>
+                <h4>ISBN eingeben</h4>
                 <FindByISBN />
             </>
         ),
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         element: (
             <>
                 <Navbar />
-                <h3>Titel eingeben</h3>
+                <h4>Titel eingeben</h4>
                 <FindByTitle />
             </>
         ),
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         element: (
             <>
                 <Navbar />
-                <h3>Alle Bücher suchen</h3>
+                <h4>Alle Bücher suchen</h4>
                 <Get />
             </>
         ),
