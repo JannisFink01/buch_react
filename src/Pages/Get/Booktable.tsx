@@ -1,7 +1,26 @@
-import React from 'react';
 import { Buch } from '../../types/buchinterface.tsx';
 
 const BuchTable = ({ buecher }: { buecher: Buch[] }) => {
+    // Funktion zur Erzeugung der Sternsymbole basierend auf dem Rating
+    const renderRatingStars = (rating: number) => {
+        const maxStars = 5;
+        const filledStars = Math.round(rating);
+        const emptyStars = maxStars - filledStars;
+        
+        const filledStar = <span style={{ color: 'gold' }}>★</span>;
+        const emptyStar = <span style={{ color: 'gray' }}>★</span>;
+
+        const stars = [];
+        for (let i = 0; i < filledStars; i++) {
+            stars.push(filledStar);
+        }
+        for (let i = 0; i < emptyStars; i++) {
+            stars.push(emptyStar);
+        }
+
+        return stars;
+    };
+
     return (
         <table className="table table-striped">
             <thead>
@@ -25,14 +44,14 @@ const BuchTable = ({ buecher }: { buecher: Buch[] }) => {
                         <td>{buch.isbn}</td>
                         <td>{buch.titel.titel}</td>
                         <td>{buch.titel.untertitel}</td>
-                        <td>{buch.rating}</td>
+                        <td>{renderRatingStars(buch.rating)}</td>
                         <td>{buch.art}</td>
                         <td>{buch.preis}</td>
-                        <td>{buch.rabatt}</td>
+                        <td>{(buch.rabatt * 100).toFixed(2)}%</td>
                         <td>{buch.lieferbar ? 'Yes' : 'No'}</td>
                         <td>{buch.datum}</td>
                         <td>{buch.homepage}</td>
-                        <td>{buch.schlagwoerter}</td>
+                        <td>{buch.schlagwoerter.join(', ')}</td>
                     </tr>
                 ))}
             </tbody>
