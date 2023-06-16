@@ -1,11 +1,14 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Buch from '../../types/buchinterface';
 import { Button } from 'react-bootstrap';
 import BuchTable from './Booktable';
 export default function BuchHeader() {
     const [buecher, setBuecher] = useState<Buch[]>([]);
     const [showTable, setShowTable] = useState(false);
+    useEffect(() => {
+        getBook();
+    }, []);
     //import Buch from "../../types/buchinterface";
     const getBook = () => {
         axios
@@ -21,8 +24,7 @@ export default function BuchHeader() {
     };
     return (
         <header className="buch-header">
-            <Button onClick={getBook}>Alle Bücher erhalten</Button>
-            {showTable && <BuchTable buecher={buecher} />}
+            <BuchTable buecher={buecher} />
         </header>
     );
 }

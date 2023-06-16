@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         element: (
             <>
                 <Navbar />
-                <h4>Alle Bücher suchen</h4>
+                <h4>Alle Bücher</h4>
                 <Get />
             </>
         ),

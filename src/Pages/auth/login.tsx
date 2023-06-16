@@ -10,20 +10,26 @@ export const Login = () => {
     const [loginPassword, setLoginPassword] = useState('');
     const [error, setError] = useState('');
     const [token, setToken] = useState('');
+    const [success, setSuccess] = useState('');
 
     const API_ENDPOINT = 'https://localhost:3000/auth/login';
 
     const handleLogin = async () => {
         try {
+            setError('');
+            setSuccess('');
             const response = await axios.post(`${API_ENDPOINT}`, {
                 username: loginUser,
                 password: loginPassword,
             });
+            setLoginPassword('');
+            setLoginUser('');
 
             if (response.status === 200) {
                 // Login erfolgreich
                 const { token, roles } = response.data;
                 // Speichern des Tokens und der Rolle im localStorage
+                setSuccess('Angemeldet als: ' + roles.join(', '));
                 Cookies.set('token', token, { expires: 1 });
                 setToken(token);
                 localStorage.setItem('token', token);
@@ -41,6 +47,8 @@ export const Login = () => {
         } catch (error) {
             console.error(error);
             setError('Falscher Benutzername oder falsches Passwort.');
+            setLoginPassword('');
+            setLoginUser('');
         }
     };
 
@@ -54,10 +62,12 @@ export const Login = () => {
     };
 
     return (
-        <div className="container">
-            <div className="login-box">
-                <FontAwesomeIcon icon={faUser} />{' '}
-                <span className="fw-bold">Login</span>
+        <div className="container d-flex justify-content-center align-items-center vh-100">
+            <div className="card w-50">
+                <div className="card-body d-flex flex-column align-items-center">
+                    <FontAwesomeIcon icon={faUser} size="2x" className="mb-2" />
+                    <h5 className="fw-bold">Login</h5>
+                </div>
                 <form>
                     <div className="form-outline mb-4">
                         <input
@@ -94,7 +104,22 @@ export const Login = () => {
                         Anmelden
                     </button>
                 </form>
-                {error && <p>{error}</p>}
+                {error && (
+                    <div
+                        className="error-message"
+                        style={{ marginBottom: '10px' }}
+                    >
+                        {error}
+                    </div>
+                )}
+                {success && (
+                    <div
+                        className="success-message"
+                        style={{ marginBottom: '10px' }}
+                    >
+                        {success}
+                    </div>
+                )}
             </div>
         </div>
     );

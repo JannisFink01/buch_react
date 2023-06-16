@@ -2,8 +2,9 @@ import axios from 'axios';
 import './form.css';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, Form } from 'react-bootstrap';
 import { handleErrorResponse } from './formerrors';
+import { Modal, Button } from 'react-bootstrap';
 
 export default function Formular() {
     const [isbn, setIsbn] = useState('');
@@ -18,6 +19,7 @@ export default function Formular() {
     const [homepage, setHomepage] = useState('');
     const [schlagwörter, setSchlagwörter] = useState<string[]>([]);
     const [error, setError] = useState('');
+    const [showPopup, setShowPopup] = useState(false);
     const API_ENDPOINT = 'https://localhost:3000/rest';
     const token = Cookies.get('token');
     const config = {
@@ -78,6 +80,7 @@ export default function Formular() {
                     schlagwörter,
                 });
                 setError('');
+                setShowPopup(true);
             } else {
                 console.log('put fehlgeschlagen');
                 console.log;
@@ -92,197 +95,232 @@ export default function Formular() {
     const handleBuchArtChange = (value: string) => {
         setBuchArt(value);
     };
+    const handleClosePopup = () => {
+        setShowPopup(false);
+    };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="card">
-                <div className="row">
-                    <div className="col-md-6">
-                        <div className="form-group">
-                            <label htmlFor="exampleInputIsbn1">ISBN</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputIsbn1"
-                                value={isbn}
-                                onChange={(event) =>
-                                    setIsbn(event.target.value)
-                                }
-                                placeholder="ISBN"
-                            />
+        <>
+            <form onSubmit={handleSubmit}>
+                <div className="card">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <label htmlFor="exampleInputIsbn1">ISBN</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleInputIsbn1"
+                                    value={isbn}
+                                    onChange={(event) =>
+                                        setIsbn(event.target.value)
+                                    }
+                                    placeholder="ISBN"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputTitel1">
+                                    Titel
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleInputTitel1"
+                                    value={titel}
+                                    onChange={(event) =>
+                                        setTitel(event.target.value)
+                                    }
+                                    placeholder="Titel"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputUntertitel1">
+                                    Untertitel
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleInputUntertitel1"
+                                    value={untertitel}
+                                    onChange={(event) =>
+                                        setUntertitel(event.target.value)
+                                    }
+                                    placeholder="Untertitel"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputRating1">
+                                    Rating
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleInputRating1"
+                                    value={rating}
+                                    onChange={(event) =>
+                                        setRating(Number(event.target.value))
+                                    }
+                                    placeholder="Rating"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPreis1">
+                                    Preis
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleInputPreis1"
+                                    value={preis}
+                                    onChange={(event) =>
+                                        setPreis(parseFloat(event.target.value))
+                                    }
+                                    placeholder="Preis"
+                                />
+                            </div>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputTitel1">Titel</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputTitel1"
-                                value={titel}
-                                onChange={(event) =>
-                                    setTitel(event.target.value)
-                                }
-                                placeholder="Titel"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputUntertitel1">
-                                Untertitel
-                            </label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputUntertitel1"
-                                value={untertitel}
-                                onChange={(event) =>
-                                    setUntertitel(event.target.value)
-                                }
-                                placeholder="Untertitel"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputRating1">Rating</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputRating1"
-                                value={rating}
-                                onChange={(event) =>
-                                    setRating(Number(event.target.value))
-                                }
-                                placeholder="Rating"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPreis1">Preis</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputPreis1"
-                                value={preis}
-                                onChange={(event) =>
-                                    setPreis(parseFloat(event.target.value))
-                                }
-                                placeholder="Preis"
-                            />
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <label htmlFor="exampleInputRabatt1">
+                                    Rabatt
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleInputRabatt1"
+                                    value={rabatt.toString()}
+                                    onChange={(event) =>
+                                        setRabatt(
+                                            parseFloat(event.target.value),
+                                        )
+                                    }
+                                    placeholder="Rabatt"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputDatum1">
+                                    Datum
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleInputDatum1"
+                                    value={datum}
+                                    onChange={(event) =>
+                                        setDatum(event.target.value)
+                                    }
+                                    placeholder="Datum"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputHomepage1">
+                                    Homepage
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleInputHomepage1"
+                                    value={homepage}
+                                    onChange={(event) =>
+                                        setHomepage(event.target.value)
+                                    }
+                                    placeholder="Homepage"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputSchlagwörter">
+                                    Schlagwörter
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="exampleInputSchlagwörter1"
+                                    value={
+                                        Array.isArray(schlagwörter)
+                                            ? schlagwörter.join(', ')
+                                            : ''
+                                    }
+                                    onChange={(event) =>
+                                        setSchlagwörter(
+                                            event.target.value.split(', '),
+                                        )
+                                    }
+                                    placeholder="Schlagwörter"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputLieferbar1">
+                                    Lieferbar
+                                </label>
+                                <Form.Check
+                                    type="checkbox"
+                                    id="exampleInputLieferbar1"
+                                    checked={lieferbar}
+                                    onChange={(event) =>
+                                        setLieferbar(event.target.checked)
+                                    }
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div className="col-md-6">
-                        <div className="form-group">
-                            <label htmlFor="exampleInputRabatt1">Rabatt</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputRabatt1"
-                                value={rabatt.toString()}
-                                onChange={(event) =>
-                                    setRabatt(parseFloat(event.target.value))
-                                }
-                                placeholder="Rabatt"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputLieferbar1">
-                                Lieferbar
-                            </label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputLieferbar1"
-                                value={lieferbar ? 'true' : 'false'}
-                                onChange={(event) =>
-                                    setLieferbar(event.target.value === 'true')
-                                }
-                                placeholder="Lieferbar"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputDatum1">Datum</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputDatum1"
-                                value={datum}
-                                onChange={(event) =>
-                                    setDatum(event.target.value)
-                                }
-                                placeholder="Datum"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputHomepage1">
-                                Homepage
-                            </label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputHomepage1"
-                                value={homepage}
-                                onChange={(event) =>
-                                    setHomepage(event.target.value)
-                                }
-                                placeholder="Homepage"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputSchlagwörter">
-                                Schlagwörter
-                            </label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="exampleInputSchlagwörter1"
-                                value={
-                                    Array.isArray(schlagwörter)
-                                        ? schlagwörter.join(', ')
-                                        : ''
-                                }
-                                onChange={(event) =>
-                                    setSchlagwörter(
-                                        event.target.value.split(', '),
-                                    )
-                                }
-                                placeholder="Schlagwörter"
-                            />
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="form-group">
+                                <label htmlFor="exampleInpputBuchArt1">
+                                    BuchArt
+                                </label>
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="light">
+                                        {buchArt
+                                            ? buchArt
+                                            : 'BuchArt auswählen'}
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item
+                                            onClick={() =>
+                                                handleBuchArtChange('KINDLE')
+                                            }
+                                        >
+                                            KINDLE
+                                        </Dropdown.Item>
+                                        <Dropdown.Item
+                                            onClick={() =>
+                                                handleBuchArtChange(
+                                                    'DRUCKAUSGABE',
+                                                )
+                                            }
+                                        >
+                                            DRUCKAUSGABE
+                                        </Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>
+                            <div className="card-body">
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                >
+                                    Buch erstellen
+                                </button>
+                            </div>
+                            {error && (
+                                <div className="error-message">{error}</div>
+                            )}
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="form-group">
-                            <label htmlFor="exampleInpputBuchArt1">
-                                BuchArt
-                            </label>
-                            <Dropdown>
-                                <Dropdown.Toggle variant="light">
-                                    {buchArt ? buchArt : 'BuchArt auswählen'}
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    <Dropdown.Item
-                                        onClick={() =>
-                                            handleBuchArtChange('KINDLE')
-                                        }
-                                    >
-                                        KINDLE
-                                    </Dropdown.Item>
-                                    <Dropdown.Item
-                                        onClick={() =>
-                                            handleBuchArtChange('DRUCKAUSGABE')
-                                        }
-                                    >
-                                        DRUCKAUSGABE
-                                    </Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </div>
-                        <div className="card-body">
-                            <button type="submit" className="btn btn-primary">
-                                Buch erstellen
-                            </button>
-                        </div>
-                        {error && <div className="error-message">{error}</div>}
-                    </div>
-                </div>
-            </div>
-        </form>
+            </form>
+            <Modal show={showPopup} onHide={handleClosePopup}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Buch Angelegt</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Buch erfolgreich angelegt</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClosePopup}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
     );
 }

@@ -59,3 +59,11 @@
   font-size: 24px;
   margin-bottom: 10px;
 }
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+.success-message {
+  color: limegreen;
+  margin-top: 10px;
+}

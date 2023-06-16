@@ -8,6 +8,7 @@ import {
     faBook,
 } from '@fortawesome/free-solid-svg-icons';
 import './navbar.css';
+import { Logout } from './auth/logout';
 
 function Navbar() {
     return (
@@ -65,6 +66,9 @@ function Navbar() {
                             <Link to="/login" className="nav-link">
                                 <FontAwesomeIcon icon={faSignInAlt} /> Login
                             </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Logout />
                         </li>
                     </ul>
                 </div>
