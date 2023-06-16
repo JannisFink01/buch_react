@@ -79,6 +79,16 @@ export default function Formular() {
                     homePage,
                     schlagwörter,
                 });
+                setTitel('');
+                setUntertitel('');
+                setBuchArt('');
+                setDatum('');
+                setHomepage('');
+                setIsbn('');
+                setPreis(0.0);
+                setRabatt(0.0);
+                setRating(0);
+                setSchlagwörter([]);
                 setError('');
                 setShowPopup(true);
             } else {
