@@ -17,6 +17,7 @@ function Navbar() {
     const toggleNavbar = () => {
         setIsExpanded(!isExpanded);
     };
+
     const handleLinkClick = () => {
         setIsExpanded(false); // Schließt die Toggle-Navigation
     };
@@ -94,10 +95,7 @@ function Navbar() {
                                 <FontAwesomeIcon icon={faSignInAlt} /> Login
                             </Link>
                         </li>
-                        <li
-                            className="nav-item text-center"
-                            onClick={handleLinkClick}
-                        >
+                        <li className="nav-item d-flex justify-content-center">
                             <Logout />
                         </li>
                     </ul>
