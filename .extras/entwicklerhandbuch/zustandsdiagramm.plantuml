@@ -1,0 +1,74 @@
+@startuml Zustandsdiagramm
+skinparam state {
+    BackgroundColor LightBlue
+}
+
+[*] --> index
+index: session
+
+state "/auth" as auth {
+    Anmeldeformular: username
+    Anmeldeformular: password
+    state Anmeldergebnis <<choice>>
+
+    [*] --> Anmeldeformular
+    Anmeldeformular --> Anmeldergebnis
+    Anmeldergebnis --> AnmeldeFehler: Fehlerhafte Daten
+    Anmeldergebnis --> BackendFehlerAuth: Backend nicht erreichbar
+    Anmeldergebnis --> [*]: Erfolg
+}
+
+state "/post" as create {
+    Anlegeformular: form
+    state Anmeldeergebnis <<choice>>
+
+    [*] --> Anlegeformular
+    Anlegeformular --> Anmeldeergebnis
+    Anmeldeergebnis --> AnlegeFehler: Fehlerhafte Daten
+    Anmeldeergebnis --> BackendFehlerCreate: Backend nicht erreichbar
+    Anmeldeergebnis --> [*]: Erfolg
+}
+
+state "/get" as root {
+    Suchformular: suchkriterien
+    LadenRoot: true / false
+    state Suchergebnis <<choice>>
+
+    [*] --> Suchformular
+    Suchformular --> Bestätigung: Eingabe (ISBN oder Titel)
+    Bestätigung --> Suchergebnis: Button "Bücher suchen"
+    Suchergebnis --> AlleBuecher: Alle Bücher
+    Suchergebnis --> SucheISBN: Suche nach ISBN
+    Suchergebnis --> SucheTitel: Suche nach Titel
+    SucheISBN --> BackendFehlerRoot: Backend nicht erreichbar
+    SucheTitel --> BackendFehlerRoot: Backend nicht erreichbar
+    AlleBuecher --> BackendFehlerRoot: Backend nicht erreichbar
+    SucheISBN --> GefundeneBuecher: Mind. 1 Buch (ISBN)
+    SucheTitel --> GefundeneBuecher: Mind. 1 Buch (Titel)
+    AlleBuecher --> GefundeneBuecher: Mind. 1 Buch (alle)
+    Suchergebnis --> KeineBuecher: Keine Bücher
+    BackendFehlerRoot --> Suchergebnis: Zurück
+}
+
+state "/[id]" as id {
+    LadenId: true / false
+    state Ladeergebnis <<choice>>
+
+    [*] --> LadenId
+    LadenId --> Ladeergebnis: false
+    Ladeergebnis --> GefundenesBuch: Buch
+    Ladeergebnis --> KeinBucher: Kein Buch
+    Ladeergebnis --> BackendFehlerId: Backend nicht erreichbar
+}
+
+index --> auth: Button "Login"
+index --> auth: Button "Logout"
+index --> create: Button "Buch anlegen"
+index --> root: Button "Bücher suchen"
+create --> id: Erfolg
+root --> id: Erfolg
+auth --> index: Button "BIGBOOKS"
+create --> index: Button "BIGBOOKS"
+root --> index: Button "BIGBOOKS"
+
+@enduml
