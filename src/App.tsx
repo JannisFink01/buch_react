@@ -15,7 +15,7 @@ export function App() {
                     src="images/pexels-gül-işık-2128249.jpg"
                 />
                 <Card.Body>
-                    <h1>Wilkommen bei Bigbooks!</h1>
+                    <h1>Willkommen bei BIGBOOKS!</h1>
                     <Button variant="primary" className="w-100 mb-3">
                         <Link to="/create" className="nav-link">
                             <FontAwesomeIcon icon={faPlus} /> Buch anlegen
