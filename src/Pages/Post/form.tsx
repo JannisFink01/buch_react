@@ -20,6 +20,12 @@ export default function Formular() {
     const [schlagwörter, setSchlagwörter] = useState<string[]>([]);
     const [error, setError] = useState('');
     const [showPopup, setShowPopup] = useState(false);
+    const [isbnError, setIsbnError] = useState('');
+    const [homepageError, setHomepageError] = useState('');
+    const [ratingError, setRatingError] = useState('');
+    const [rabattError, setRabattError] = useState('');
+    const [datumError, setDatumError] = useState('');
+
     const API_ENDPOINT = 'https://localhost:3000/rest';
     const token = Cookies.get('token');
     const config = {
@@ -96,6 +102,7 @@ export default function Formular() {
                 console.log;
                 handleErrorResponse(res, setError);
             }
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error(error);
             console.log('FEHLER');
@@ -104,6 +111,73 @@ export default function Formular() {
     };
     const handleBuchArtChange = (value: string) => {
         setBuchArt(value);
+    };
+    const handleIsbnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setIsbn(value);
+
+        // Echtzeitvalidierung der ISBN
+        const isValidIsbn = /^(978|979)-\d{1,5}-\d{1,7}-\d{1,6}-\d$/.test(
+            value,
+        );
+        if (!isValidIsbn) {
+            setIsbnError('Ungültige ISBN');
+        } else {
+            setIsbnError('');
+        }
+    };
+    const handleRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = parseFloat(e.target.value);
+        if (!isNaN(value)) {
+            if (value > 5) {
+                setRating(5);
+                setRatingError('Das Rating darf nicht größer als 5 sein.');
+            } else {
+                setRating(value);
+                setRatingError('');
+            }
+        } else {
+            setRating(0);
+            setRatingError('');
+        }
+    };
+    const handleRabattChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = parseFloat(e.target.value);
+        if (!isNaN(value)) {
+            if (value >= 0 && value < 1) {
+                setRabatt(value);
+                setRabattError('');
+            } else {
+                setRabatt(value);
+                setRabattError(
+                    'Der Rabatt muss zwischen 0 und 1 (ausschließlich) liegen.',
+                );
+            }
+        } else {
+            setRabatt(value);
+            setRabattError('');
+        }
+    };
+    const handleDatumChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setDatum(value);
+        const isValidDatum = /^\d{4}-\d{2}-\d{2}$/.test(value);
+        if (!isValidDatum) {
+            setDatumError('ungültiges Datum');
+        } else {
+            setDatumError('');
+        }
+    };
+
+    const handleHomepageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setHomepage(value);
+        const isValidHomepage = /^https:\/\/\w+(\.\w+)+$/.test(value);
+        if (!isValidHomepage) {
+            setHomepageError('ungültige Homepage');
+        } else {
+            setHomepageError('');
+        }
     };
     const handleClosePopup = () => {
         setShowPopup(false);
@@ -122,11 +196,14 @@ export default function Formular() {
                                     className="form-control"
                                     id="exampleInputIsbn1"
                                     value={isbn}
-                                    onChange={(event) =>
-                                        setIsbn(event.target.value)
-                                    }
+                                    onChange={handleIsbnChange}
                                     placeholder="ISBN"
                                 />
+                                {isbnError && (
+                                    <Form.Text className="text-danger">
+                                        {isbnError}
+                                    </Form.Text>
+                                )}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputTitel1">
@@ -164,14 +241,18 @@ export default function Formular() {
                                 </label>
                                 <input
                                     type="text"
+                                    step="0.1"
                                     className="form-control"
                                     id="exampleInputRating1"
                                     value={rating}
-                                    onChange={(event) =>
-                                        setRating(Number(event.target.value))
-                                    }
+                                    onChange={handleRatingChange}
                                     placeholder="Rating"
                                 />
+                                {ratingError && (
+                                    <Form.Text className="text-danger">
+                                        {ratingError}
+                                    </Form.Text>
+                                )}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputPreis1">
@@ -199,13 +280,14 @@ export default function Formular() {
                                     className="form-control"
                                     id="exampleInputRabatt1"
                                     value={rabatt.toString()}
-                                    onChange={(event) =>
-                                        setRabatt(
-                                            parseFloat(event.target.value),
-                                        )
-                                    }
+                                    onChange={handleRabattChange}
                                     placeholder="Rabatt"
                                 />
+                                {rabattError && (
+                                    <Form.Text className="text-danger">
+                                        {rabattError}
+                                    </Form.Text>
+                                )}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputDatum1">
@@ -216,11 +298,14 @@ export default function Formular() {
                                     className="form-control"
                                     id="exampleInputDatum1"
                                     value={datum}
-                                    onChange={(event) =>
-                                        setDatum(event.target.value)
-                                    }
+                                    onChange={handleDatumChange}
                                     placeholder="Datum"
                                 />
+                                {datumError && (
+                                    <Form.Text className="text-danger">
+                                        {datumError}
+                                    </Form.Text>
+                                )}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputHomepage1">
@@ -231,11 +316,14 @@ export default function Formular() {
                                     className="form-control"
                                     id="exampleInputHomepage1"
                                     value={homepage}
-                                    onChange={(event) =>
-                                        setHomepage(event.target.value)
-                                    }
+                                    onChange={handleHomepageChange}
                                     placeholder="Homepage"
                                 />
+                                {homepageError && (
+                                    <Form.Text className="text-danger">
+                                        {homepageError}
+                                    </Form.Text>
+                                )}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputSchlagwörter">
