@@ -22,4 +22,7 @@
   .form-wrapper button {
     flex-shrink: 0;
   }
-  
+
+  .extra-space {
+    margin-top: 50px;
+  }  

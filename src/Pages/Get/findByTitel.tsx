@@ -43,8 +43,11 @@ const FindByTitle = () => {
     };
 
     return (
-        <div className="center-container">
-            <form onSubmit={handleSubmit} className="form-wrapper">
+        <div className="">
+            <form
+                onSubmit={handleSubmit}
+                className="form-wrapper d-flex justify-content-center"
+            >
                 <label htmlFor="titleInput">
                     <input
                         type="text"
@@ -62,7 +65,8 @@ const FindByTitle = () => {
             {error && <div>{error}</div>}
             {buecher.length > 0 && (
                 <div>
-                    <h3>Gefundene Bücher</h3>
+                    <div className="extra-space"></div>
+                    <h4>Gefundene Bücher</h4>
                     {showTable && <BuchTable buecher={buecher} />}
                 </div>
             )}
